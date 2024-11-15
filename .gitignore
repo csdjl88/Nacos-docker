@@ -1,0 +1,10 @@
+.idea/
+.git/
+runtime/
+vendor/
+.vscode/
+/nacos/logs/
+/nacos/data/
+/date/nacos/logs/
+/date/nacos/data/
+/date/rabbitmq/data/

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  nacos:
+    image: nacos/nacos-server:v2.3.2-slim
+    container_name: "nacos"
+    environment:
+      - MODE=standalone
+    volumes:
+          - "./nacos/logs:/home/nacos/logs"
+          - "./nacos/data:/home/nacos/data"
+    ports:
+      - "8848:8848"
+  rabbitmq:
+      image: "rabbitmq:3.13-management"
+      container_name: "rabbitmq"
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      environment:
+        - RABBITMQ_DEFAULT_USER=guest
+        - RABBITMQ_DEFAULT_PASS=guest
+
+networks:
+  hyperf-network:
+    driver: bridge
